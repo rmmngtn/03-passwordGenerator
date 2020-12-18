@@ -60,25 +60,7 @@ function getPasswordOptions(){
     }
 
    
-     if (hasSpecialChar == true) { 
-       chosenChar.push(specialCharacters);
-     }
-     else {}
-
-     if (hasNumbers == true) { 
-       chosenChar.push(numericCharacters); 
-     }
-     else {}
-
-     if (hasUpperCase == true) { 
-       chosenChar.push(upperCasedCharacters); 
-     } 
-     else {}
-
-     if (hasLowerCase == true) { 
-       chosenChar.push(lowerCasedCharacters);
-     }
-     else {}
+     
 
 } 
 
