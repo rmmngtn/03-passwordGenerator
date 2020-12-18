@@ -13,7 +13,7 @@ var lowerCasedCharacters = ['a','b','c','d','e','f','g','h','i','j','k','l','m',
 // Array of uppercase characters to be included in password
 var upperCasedCharacters = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
 
- var chosenChar = []; 
+ let optionsArray = " "; 
  
 
 // Write password to the #password input
@@ -37,36 +37,35 @@ function getPasswordOptions(){
   var length = parseInt(prompt("Enter desired length of password"))
   //Conditional statement to ensure user input 
   //Check password length
-    if (length >= 8 && length <= 128) {
 
-  var hasSpecialChar = confirm("Click ok to confirm allowing special characters in your password");
- 
+  if (length < 8 || length > 128){ 
+    alert("Password length must be between 8 and 128 characters!")
+  }
+  
+  if (length >= 8 && length <= 128) {
+
+    var hasSpecialChar = confirm("Click ok to confirm allowing special characters in your password"); 
+      
+    
+    var hasNumbers = confirm("Click ok to confirm allowing numbers in your password"); 
     
      
-  var hasNumbers = confirm("Click ok to confirm allowing numbers in your password"); 
-     
-     
-
-  var hasUpperCase = confirm("Click ok to confirm upper case letters in your password"); 
+     var hasUpperCase = confirm("Click ok to confirm upper case letters in your password"); 
      
 
-  var hasLowerCase = confirm("Click ok to confirm lower case letters in your password!"); 
+    var hasLowerCase = confirm("Click ok to confirm lower case letters in your password!"); 
     
-
-    }
-
-    else { 
-      alert("Password length must be between 8 and 128 characters!")
-    }
-
-   
-     
-
 } 
 
+if (hasSpecialChar != true && hasNumbers != true && hasUpperCase != true && hasLowerCase != true) { 
+  alert("Must have at least one character type for password!")
+}
 
-console.log(chosenChar);
+
+
+
+console.log(optionsArray);
 
 
 // Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
+generateBtn.addEventListener("click", writePassword);}
