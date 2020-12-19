@@ -12,8 +12,8 @@ var lowerCasedCharacters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k
 // Array of uppercase characters to be included in password
 var upperCasedCharacters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
 
-
-
+ 
+var randoArr = [];
 
 // Write password to the #password input
 function writePassword() {
@@ -24,14 +24,18 @@ function writePassword() {
 
 }
 
-
 // Generate the password 
-
+function generatePassword() {
+  var options = getPasswordOptions();
+  return options
+}
+ 
 
 function getPasswordOptions() {
   var length = parseInt(prompt("Enter desired length of password"));
   // Conditional statement to ensure user input 
   // Check password length
+
 
   if (length < 8 || length > 128) {
     alert("Password must be between 8-128 characters!")
@@ -46,6 +50,8 @@ function getPasswordOptions() {
     var hasUpperCase = confirm("Click ok to confirm upper case letters in your password");
 
     var hasLowerCase = confirm("Click ok to confirm lower case letters in your password!");
+
+
   }
 
   if (hasSpecial != true && hasNumbers != true && hasUpperCase != true && hasLowerCase != true) {
@@ -63,30 +69,22 @@ function getPasswordOptions() {
 
   if (hasLowerCase) optionsArr = optionsArr.concat(lowerCasedCharacters);
 
-  // check to make sure this whole thing worked
-  console.log(optionsArr);
-  return optionsArr;
-}
 
+  for (var i = 0; i < length; ++i) {
+   
+    var passCode = optionsArr[Math.floor(Math.random() * optionsArr.length)];
 
-
-
-
-
+    randoArr.push(passCode);
+    
+  }
+    var password = randoArr.join(""); 
+      return password; 
+  }
+  
+   
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
-
-
-
-function generatePassword(length, specialCharacters, numericCharacters, upperCasedCharacters, lowerCasedCharacters) {
-  var options = getPasswordOptions();
-
-  for 
-
-
-
-}
 
 
 
